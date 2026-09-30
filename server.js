@@ -5,6 +5,12 @@ const express = require('express');
 const app = express();
 
 
+//middleware to parse JSON request bodies
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+})
+
 // Define a route for the root URL
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the app' });
